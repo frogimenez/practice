@@ -2,12 +2,16 @@ var requestOptions = {
     method: 'GET',
     redirect: 'follow'
 };
-
-fetch("http://localhost/practice/backend/", requestOptions)
+console.log(1);
+fetch("http://localhost/practice/backend/playas.php")
     .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+    .then(myRawData => {
+        const myJsonData = JSON.parse(myRawData)
+        console.log(myJsonData);
+    })
 
-console.log(requestOptions);
+.catch(error => console.log('error', error));
+console.log(2);
 
-document.write(requestOptions);
+document.getElementById("contenido").innerHTML = "hola";
+$("#contenido").innerHTML = "sdgdsfg"
