@@ -3,11 +3,24 @@ var requestOptions = {
     redirect: 'follow'
 };
 
-fetch("http://localhost/practice/backend/", requestOptions)
+
+fetch("http://localhost/practice/backend/playas.php")
     .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+    .then(myRawData => {
+        const myJsonData = JSON.parse(myRawData)
+        console.log(myJsonData);
+        document.getElementById("contenido").innerHTML = myRawData;
+    })
 
-console.log(requestOptions);
+.catch(error => console.log('error', error));
+console.log(2);
 
-document.write(requestOptions);
+
+
+document.getElementById("contenido").innerHTML = "hola";
+$("#contenido").innerHTML = "sdgdsfg"
+
+function changeColor(newColor) {
+    let elem = document.getElementById("test");
+    elem.style.color = newColor;
+}
