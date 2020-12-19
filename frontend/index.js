@@ -3,24 +3,23 @@ var requestOptions = {
     redirect: 'follow'
 };
 
+function getData() {
+    fetch("http://localhost/practice/backend/playas.php")
+        .then(response => response.text())
+        .then(myRawData => {
+            var myJsonData = JSON.parse(myRawData)
+            let string = "";
+            for (let i = 0; i < myJsonData.length; i++) {
+                var obj = myJsonData[i];
 
-fetch("http://localhost/practice/backend/playas.php")
-    .then(response => response.text())
-    .then(myRawData => {
-        const myJsonData = JSON.parse(myRawData)
-        console.log(myJsonData);
-        document.getElementById("contenido").innerHTML = myRawData;
-    })
+                string += obj.nombres_playas + ' - ' + obj.telefono + '<br/>';
+            }
+            document.getElementById("contenido").innerHTML = string;
 
-.catch(error => console.log('error', error));
-console.log(2);
+        })
+
+    .catch(error => console.log('error', error));
 
 
-
-document.getElementById("contenido").innerHTML = "hola";
-$("#contenido").innerHTML = "sdgdsfg"
-
-function changeColor(newColor) {
-    let elem = document.getElementById("test");
-    elem.style.color = newColor;
 }
+getData();
