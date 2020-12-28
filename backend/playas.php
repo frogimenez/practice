@@ -14,3 +14,5 @@ if ($result = $mysqli->query("SELECT * FROM playas")) {
 $result->close();
 $mysqli->close();
 
+
+
