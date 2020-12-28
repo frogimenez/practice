@@ -4,22 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <title>test1.1</title>
-    <script type="text/javascript" src="index.js"></script>
+
 
 </head>
 
 <body>
     <div>
         <div>
-            <button id="myBtn1" onclick="getDataNombresTelefono()">Try it</button>
+            <button id="myBtn1" onclick="">Try it</button>
             <div id="contenido" class="button"></div>
         </div>
         <div>
-            <button id="myBtn2" onclick="getMail()">Try it</button>
+            <button id="myBtn2" onclick="">Try it</button>
             <div id="contenido2" class="button"></div>
         </div>
     </div>
 
+    <div>
+        <!-- Posible submit para meter info en la BBDD-->
+        <form action="../backend/playas_post.php" method="POST">
+            <label>Enter Order ID:</label><br />
+            <input type="text" name="order_id" placeholder="Enter Order ID" required/>
+            <br /><br />
+            <button type="submit" name="submit">Submit</button>
+        </form>
+    </div>
+
 </body>
+<script type="text/javascript" src="index.js"></script>
 
 </html>
