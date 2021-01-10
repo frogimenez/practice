@@ -1,0 +1,23 @@
+.element {
+    border: 1px solid red;
+    border-radius: 20px;
+    padding: 20px;
+    width: 200px;
+}
+
+.element h1 {
+    text-transform: uppercase;
+    text-decoration: underline;
+    color: green;
+    margin: 0;
+    margin-bottom: 12px;
+}
+
+.element span {
+    font-family: monospace;
+    font-size: 20px;
+}
+
+#template {
+    display: none;
+}
