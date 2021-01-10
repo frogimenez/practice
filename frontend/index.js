@@ -20,7 +20,7 @@ function getDataNombresTelefono() {
         })
         .catch(error => console.log('error', error));
 }
-document.getElementById("myBtn1").addEventListener("click", getDataNombresTelefono);
+//document.getElementById("myBtn1").addEventListener("click", getDataNombresTelefono);
 
 function getMail() {
     fetch("http://localhost/practice/backend/playas.php")
@@ -49,12 +49,42 @@ function getMail() {
 }
 getMail();
 
+function testeo() {
+
+    fetch("http://localhost/practice/backend/playas.php")
+        .then(response => response.text())
+        .then(myRawData => {
+            var myJsonData = JSON.parse(myRawData)
+            const contenido = document.getElementById("contenido");
+            contenido.innerHTML = ""; // Reseteando
+
+            for (let i = 0; i < myJsonData.length; i++) {
+                var templateCopy = document.getElementById("template").cloneNode(true);
+
+                templateCopy.removeAttribute("id");
+                templateCopy.getElementsByTagName("H1")[0].innerText = myJsonData[i].nombres_playas;
+                templateCopy.getElementsByTagName("H2")[0].innerText = myJsonData[i].telefono;
+                templateCopy.getElementsByTagName("SPAN")[0].innerText = myJsonData[i].mail;
+                templateCopy.getElementsByTagName("BUTTON")[0].addEventListener("click", (event) => {
+
+                    event.target.parentNode.style.display = "none"
+                });
+
+                contenido.appendChild(templateCopy)
+            }
+
+        })
+        .catch(error => console.log('error', error));
+
+}
+document.getElementById("show").addEventListener("click", testeo);
+
 var PostOptions = {
     method: 'POST'
 };
 
 function postTest() {
-    fetch('https://example.com/profile', {
+    fetch("http://localhost/practice/backend/playas_post.php", {
         method: 'POST', // or 'PUT'
         headers: {
             'Content-Type': 'application/json',
@@ -62,3 +92,10 @@ function postTest() {
         body: JSON.stringify({ orderId: 123 }),
     })
 }
+/* otra manera de hacer un POST??
+function postTest2() {
+    fetch("http://localhost/practice/backend/playas_post.php", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+}*/

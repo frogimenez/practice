@@ -2,11 +2,23 @@
 include "db_connection.php";
 
 if (isset($_POST['order_id']) && $_POST['order_id']!="") {
-    var_dump($_POST);
+     
 }else{
+    
     echo "No es un POST";
 
 }
+
+/*posible manera de enviar datos  la bbddd?? va con el form del html
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // collect value of input field
+    $name = $_POST['fname'];
+    if (empty($name)) {
+        echo "Name is empty";
+    } else {
+        echo $name;
+    }
+}*/
     
     
     
@@ -17,4 +29,31 @@ if (isset($_POST['order_id']) && $_POST['order_id']!="") {
     echo "<!--<tr><td>Response Code:</td><td>$result->response_code</td></tr>-->";
     echo "<!--<tr><td>Response Desc:</td><td>$result->response_desc</td></tr>-->";
     echo "<!--</table>-->";*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    
